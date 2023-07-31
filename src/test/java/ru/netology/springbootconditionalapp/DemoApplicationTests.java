@@ -16,9 +16,11 @@ public class DemoApplicationTests {
     @Autowired
     TestRestTemplate restTemplate;
     @Container
-    private static final GenericContainer<?> devapp = new GenericContainer<>("devapp");
+    private static final GenericContainer<?> devapp = new GenericContainer<>("devapp")
+            .withExposedPorts(8080);
     @Container
-    private static final GenericContainer<?> prodapp = new GenericContainer<>("prodapp");
+    private static final GenericContainer<?> prodapp = new GenericContainer<>("prodapp")
+            .withExposedPorts(8081);
     @Test
     void testDevappStartedReturnsCurrentProfileIsDev() {
         Integer devappPort = devapp.getMappedPort(8080);

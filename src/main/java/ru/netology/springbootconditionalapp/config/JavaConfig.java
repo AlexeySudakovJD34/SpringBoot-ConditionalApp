@@ -10,7 +10,7 @@ import ru.netology.springbootconditionalapp.profile.SystemProfile;
 @Configuration
 public class JavaConfig {
     @Bean
-    @ConditionalOnProperty(name = "netology.profile.dev", havingValue = "true", matchIfMissing = true)
+    @ConditionalOnProperty(name = "netology.profile.dev", havingValue = "true")
     public SystemProfile devProfile() {
         return new DevProfile();
     }
